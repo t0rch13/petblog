@@ -15,6 +15,8 @@ To install and run Petblog you will need the following components:
 - [golang] - programming language for the backend
 - [git] - version control system
 - [postgresql] - database for storing information about users and tasks
+# Data Migrations
+Data migrations are managed using scripts stored in the `migrations` directory. Before running the application, ensure that you have performed all necessary migrations by executing the migration scripts against your PostgreSQL database.
 # To install Petblog, follow these steps:
 1.Clone the Petblog repository using the command:
 ```
