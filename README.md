@@ -12,8 +12,8 @@ Petblog also uses middleware to process requests and responses, as well as to ve
 authentication and authorization of users, passwords are hashed in the database PostgreSQL
 # Installation
 To install and run Petblog you will need the following components:
-[golang] - programming language for the backend
-[git] - version control system
+- [golang] - programming language for the backend
+- [git] - version control system
 - [postgresql] - database for storing information about users and tasks
 # To install Petblog, follow these steps:
 1.Clone the Petblog repository using the command:
@@ -35,7 +35,7 @@ https://localhost:8080
 # Acknowledgments
 I want to thank everyone who helped me create Petblog, especially:
 
-[golang] - for an excellent programming language
-[git] - for a convenient version control system
-[postgresql] - for a simple and fast database
-[markdown] - for a simple and beautiful syntax for text formatting
+- [golang] - for an excellent programming language
+- [git] - for a convenient version control system
+- [postgresql] - for a simple and fast database
+- [markdown] - for a simple and beautiful syntax for text formatting
