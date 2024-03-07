@@ -15,6 +15,8 @@ type Pet interface {
 	CreatePet(userId int, pet petblog.Pet) (int, error)
 	GetAllPets(userId int) ([]petblog.Pet, error)
 	GetPetById(userId, petId int) (petblog.Pet, error)
+	DeletePet(userId, petId int) error
+	UpdatePet(userId, petId int, input petblog.UpdatePetInput) error
 }
 
 type Post interface {

@@ -3,8 +3,10 @@ package repository
 import (
 	"fmt"
 	"petblog"
+	"strings"
 
 	"github.com/jmoiron/sqlx"
+	"github.com/sirupsen/logrus"
 )
 
 type PetPostgres struct {
@@ -44,4 +46,49 @@ func (r *PetPostgres) GetPetById(userId, petId int) (petblog.Pet, error) {
 	}
 
 	return pet, nil
+}
+
+func (r *PetPostgres) DeletePet(userId, petId int) error {
+	query := fmt.Sprintf("DELETE FROM %s WHERE user_id=$1 AND id=$2", petsTable)
+	_, err := r.db.Exec(query, userId, petId)
+	return err
+}
+
+func (r *PetPostgres) UpdatePet(userId, petId int, input petblog.UpdatePetInput) error {
+	setValues := make([]string, 0)
+	args := make([]interface{}, 0)
+	argId := 1
+
+	if input.PetName != nil {
+		setValues = append(setValues, fmt.Sprintf("petname=$%d", argId))
+		args = append(args, *input.PetName)
+		argId++
+	}
+	if input.Species != nil {
+		setValues = append(setValues, fmt.Sprintf("species=$%d", argId))
+		args = append(args, *input.Species)
+		argId++
+	}
+	if input.Breed != nil {
+		setValues = append(setValues, fmt.Sprintf("breed=$%d", argId))
+		args = append(args, *input.Breed)
+		argId++
+	}
+	if input.Age != nil {
+		setValues = append(setValues, fmt.Sprintf("age=$%d", argId))
+		args = append(args, *input.Age)
+		argId++
+	}
+
+	setQuery := strings.Join(setValues, ", ")
+
+	query := fmt.Sprintf("UPDATE %s SET %s WHERE user_id=$%d AND id=$%d", petsTable, setQuery, argId, argId+1)
+
+	args = append(args, userId, petId)
+
+	logrus.Debugf("query: %s", query)
+	logrus.Debugf("args: %v", args)
+
+	_, err := r.db.Exec(query, args...)
+	return err
 }

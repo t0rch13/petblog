@@ -24,3 +24,14 @@ func (s *PetService) GetAllPets(userId int) ([]petblog.Pet, error) {
 func (s *PetService) GetPetById(userId, petId int) (petblog.Pet, error) {
 	return s.repo.GetPetById(userId, petId)
 }
+
+func (s *PetService) DeletePet(userId, petId int) error {
+	return s.repo.DeletePet(userId, petId)
+}
+
+func (s *PetService) UpdatePet(userId, petId int, input petblog.UpdatePetInput) error {
+	if err := input.Validate(); err != nil {
+		return err
+	}
+	return s.repo.UpdatePet(userId, petId, input)
+}
