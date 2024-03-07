@@ -35,11 +35,11 @@ go run main.go
 https://localhost:8080
 ```
 
-# Acknowledgments
 - Worked on server parts Batyrkhan
 - Worked on the client parts Sara
 - Worked on the creation and organization of files Adilet
-I want to thank everyone who helped me create Petblog, especially:
+# Acknowledgments  
+- I want to thank everyone who helped me create Petblog, especially:
 
 - [golang] - for an excellent programming language
 - [git] - for a convenient version control system
