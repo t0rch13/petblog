@@ -32,7 +32,7 @@ go run main.go
 ```
 4.Open your browser and go to:
 ```
-https://localhost:8080
+https://localhost:8000
 ```
 
 - Worked on server parts Batyrkhan

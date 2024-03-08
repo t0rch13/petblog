@@ -26,7 +26,10 @@ func (h *Handler) createPet(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, map[string]interface{}{
+	// c.JSON(http.StatusOK, map[string]interface{}{
+	// 	"id": id,
+	// })
+	c.HTML(http.StatusOK, "create.html", gin.H{
 		"id": id,
 	})
 }
@@ -47,8 +50,11 @@ func (h *Handler) getAllPets(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, getAllPetsResponse{
-		Data: pets,
+	// c.JSON(http.StatusOK, getAllPetsResponse{
+	// 	Data: pets,
+	// })
+	c.HTML(http.StatusOK, "pets.html", gin.H{
+		"pets": pets,
 	})
 }
 
@@ -70,7 +76,10 @@ func (h *Handler) getPetById(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, pet)
+	// c.JSON(http.StatusOK, pet)
+	c.HTML(http.StatusOK, "pet.html", gin.H{
+		"pet": pet,
+	})
 }
 
 func (h *Handler) updatePet(c *gin.Context) {
@@ -99,6 +108,7 @@ func (h *Handler) updatePet(c *gin.Context) {
 	c.JSON(http.StatusOK, statusResponse{
 		Status: "ok",
 	})
+
 }
 
 func (h *Handler) deletePet(c *gin.Context) {
@@ -122,4 +132,5 @@ func (h *Handler) deletePet(c *gin.Context) {
 	c.JSON(http.StatusOK, statusResponse{
 		Status: "ok",
 	})
+
 }
