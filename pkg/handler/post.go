@@ -46,11 +46,7 @@ func (h *Handler) getAllPosts(c *gin.Context) {
 		return
 	}
 
-	// c.JSON(http.StatusOK, map[string]interface{}{
-	// 	"posts": posts,
-	// })
-
-	c.HTML(http.StatusOK, "index.html", gin.H{
+	c.JSON(http.StatusOK, map[string]interface{}{
 		"posts": posts,
 	})
 }
@@ -67,11 +63,7 @@ func (h *Handler) getUserPosts(c *gin.Context) {
 		return
 	}
 
-	// c.JSON(http.StatusOK, map[string]interface{}{
-	// 	"posts": posts,
-	// })
-
-	c.HTML(http.StatusOK, "posts.html", gin.H{
+	c.JSON(http.StatusOK, map[string]interface{}{
 		"posts": posts,
 	})
 }
@@ -117,14 +109,9 @@ func (h *Handler) getPostById(c *gin.Context) {
 		return
 	}
 
-	// c.JSON(http.StatusOK, map[string]interface{}{
-	// 	"post": post,
-	// })
-
-	c.HTML(http.StatusOK, "post.html", gin.H{
+	c.JSON(http.StatusOK, map[string]interface{}{
 		"post": post,
 	})
-
 }
 
 func (h *Handler) updatePost(c *gin.Context) {

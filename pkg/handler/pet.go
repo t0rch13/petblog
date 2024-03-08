@@ -26,17 +26,14 @@ func (h *Handler) createPet(c *gin.Context) {
 		return
 	}
 
-	// c.JSON(http.StatusOK, map[string]interface{}{
-	// 	"id": id,
-	// })
-	c.HTML(http.StatusOK, "create.html", gin.H{
+	c.JSON(http.StatusOK, map[string]interface{}{
 		"id": id,
 	})
 }
 
-// type getAllPetsResponse struct {
-// 	Data []petblog.Pet `json:"data"`
-// }
+type getAllPetsResponse struct {
+	Data []petblog.Pet `json:"data"`
+}
 
 func (h *Handler) getAllPets(c *gin.Context) {
 	userId, err := getUserId(c)
@@ -50,12 +47,12 @@ func (h *Handler) getAllPets(c *gin.Context) {
 		return
 	}
 
-	// c.JSON(http.StatusOK, getAllPetsResponse{
-	// 	Data: pets,
-	// })
-	c.HTML(http.StatusOK, "pets.html", gin.H{
-		"pets": pets,
+	c.JSON(http.StatusOK, getAllPetsResponse{
+		Data: pets,
 	})
+	// c.HTML(http.StatusOK, "pets.html", gin.H{
+	// 	"pets": pets,
+	// })
 }
 
 func (h *Handler) getPetById(c *gin.Context) {
@@ -76,10 +73,8 @@ func (h *Handler) getPetById(c *gin.Context) {
 		return
 	}
 
-	// c.JSON(http.StatusOK, pet)
-	c.HTML(http.StatusOK, "pet.html", gin.H{
-		"pet": pet,
-	})
+	c.JSON(http.StatusOK, pet)
+
 }
 
 func (h *Handler) updatePet(c *gin.Context) {
@@ -132,5 +127,4 @@ func (h *Handler) deletePet(c *gin.Context) {
 	c.JSON(http.StatusOK, statusResponse{
 		Status: "ok",
 	})
-
 }
