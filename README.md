@@ -16,11 +16,11 @@ To install and run Petblog you will need the following components:
 - [git] - version control system
 - [postgresql] - database for storing information about users and tasks
 # Data Migrations
-Data migrations are managed using scripts stored in the `migrations` directory. Before running the application, ensure that you have performed all necessary migrations by executing the migration scripts against your PostgreSQL database.
+Data migrations are managed using the `migrate` utility. Before running the application, ensure that you have performed all necessary migrations by executing the migration commands against your PostgreSQL database.
 # To install Petblog, follow these steps:
 1.Clone the Petblog repository using the command:
 ```
-git clone https://github.com/yourusername/petblog.git
+git clone https://github.com/t0rch13/petblog.git
 ```
 2.Go to the project folder using the command:
 ```
@@ -44,4 +44,4 @@ https://localhost:8000
 - [golang] - for an excellent programming language
 - [git] - for a convenient version control system
 - [postgresql] - for a simple and fast database
-- [markdown] - for a simple and beautiful syntax for text formatting
+- [docker] - for convenient containerisation
