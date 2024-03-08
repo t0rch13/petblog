@@ -34,9 +34,9 @@ func (h *Handler) createPet(c *gin.Context) {
 	})
 }
 
-type getAllPetsResponse struct {
-	Data []petblog.Pet `json:"data"`
-}
+// type getAllPetsResponse struct {
+// 	Data []petblog.Pet `json:"data"`
+// }
 
 func (h *Handler) getAllPets(c *gin.Context) {
 	userId, err := getUserId(c)
