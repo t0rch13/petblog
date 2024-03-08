@@ -26,7 +26,14 @@
                         <p><strong>Pet Name:</strong> <span id="petname"></span></p>
                         <p><strong>Content:</strong></p>
                         <p id="content"></p>
+                        <button type="button" class="btn btn-primary" id="editPostButton" style="display: none;">
+                            Edit Post
+                        </button>
+                        <button type="button" class="btn btn-danger" id="deletePostButton" style="display: none;">
+                            Delete Post
+                        </button>
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -36,6 +43,36 @@
             <span class="text-muted">PetBlog, SE-2203</span>
         </div>
     </footer>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="editPostModal" tabindex="-1" aria-labelledby="editPostModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="editPostModalLabel">Edit Post</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <form id="editPostForm">
+                <div class="mb-3">
+                <label for="editTitle" class="form-label">Title</label>
+                <input type="text" class="form-control" id="editTitle" value="">
+                </div>
+                <div class="mb-3">
+                <label for="editContent" class="form-label">Content</label>
+                <textarea class="form-control" id="editContent" rows="3"></textarea>
+                </div>
+            </form>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="saveChangesButton">Save changes</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"

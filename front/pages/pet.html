@@ -33,6 +33,12 @@
             <p><span class="label">Breed:</span> <span id="pet-breed"></span></p>
             <p><span class="label">Age:</span> <span id="pet-age"></span></p>
         </div>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editPetModal">
+            Edit Pet
+        </button>
+        <button type="button" class="btn btn-danger" id="deletePetButton">
+            Delete Pet
+        </button>
     </main>
 
     <footer class="footer mt-auto py-3 bg-light">
@@ -40,6 +46,43 @@
             <span class="text-muted">Petblog, SE-2203</span>
         </div>
     </footer>
+
+
+    <div class="modal fade" id="editPetModal" tabindex="-1" aria-labelledby="editPetModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="editPetModalLabel">Edit Pet</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form id="editPetForm">
+                <div class="mb-3">
+                  <label for="pet-name-input" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="pet-name-input">
+                </div>
+                <div class="mb-3">
+                  <label for="pet-species-input" class="form-label">Species</label>
+                  <input type="text" class="form-control" id="pet-species-input">
+                </div>
+                <div class="mb-3">
+                  <label for="pet-breed-input" class="form-label">Breed</label>
+                  <input type="text" class="form-control" id="pet-breed-input">
+                </div>
+                <div class="mb-3">
+                  <label for="pet-age-input" class="form-label">Age</label>
+                  <input type="number" class="form-control" id="pet-age-input">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" id="saveChangesButton">Save changes</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
