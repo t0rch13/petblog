@@ -30,7 +30,7 @@ func (r *PetPostgres) CreatePet(userId int, pet petblog.Pet) (int, error) {
 
 func (r *PetPostgres) GetAllPets(userId int) ([]petblog.Pet, error) {
 	var pets []petblog.Pet
-	query := fmt.Sprintf("SELECT id, petname FROM %s WHERE user_id=$1", petsTable)
+	query := fmt.Sprintf("SELECT id, petname, species FROM %s WHERE user_id=$1", petsTable)
 	if err := r.db.Select(&pets, query, userId); err != nil {
 		return nil, err
 	}

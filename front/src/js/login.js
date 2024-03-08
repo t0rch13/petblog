@@ -14,9 +14,14 @@ $(document).ready(function () {
             $.ajax({
                 url: 'http://localhost:8000/auth/sign-in/',
                 method: 'POST',
-                data: data,
+                data: JSON.stringify(data),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
                 success: function (response) {
-                    alert(data);
+                    alert(response.token);
+                    localStorage.setItem('authToken', response.token);
+                    localStorage.setItem('username', username);
+                    window.location.href = '/';
                 },
                 error: function (error) {
                     console.log(error);

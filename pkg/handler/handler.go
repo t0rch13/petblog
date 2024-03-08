@@ -37,7 +37,7 @@ func (h *Handler) InitRoutes() *gin.Engine {
 		c.HTML(http.StatusOK, "pets.html", nil)
 	})
 
-	router.GET("/pet", func(c *gin.Context) {
+	router.GET("/pet/:id", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "pet.html", nil)
 	})
 

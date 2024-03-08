@@ -3,7 +3,7 @@ package petblog
 import "errors"
 
 type Pet struct {
-	ID      int    `json:"-" db:"id"`
+	ID      int    `json:"id" db:"id"`
 	UserID  int    `json:"-"` // foreign key
 	PetName string `json:"petname" db:"petname" binding:"required"`
 	Species string `json:"species" db:"species" binding:"required"`

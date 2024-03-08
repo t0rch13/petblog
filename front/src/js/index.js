@@ -8,7 +8,7 @@ $(document).ready(function() {
             postsDiv.empty();
 
             posts.forEach(function(post) {
-                var postCard = '<div class="col">' +
+                var postCard = '<div class="col mb-3">' + // Added margin-bottom CSS
                     '<div class="card">' +
                     '<div class="card-body">' +
                     '<h5 class="card-title">' + post.title + '</h5>' +
@@ -16,8 +16,8 @@ $(document).ready(function() {
                     '<a href="#" class="btn btn-primary">Read More</a>' +
                     '</div>' +
                     '</div>' +
-                    '</div>';
-
+                    '</div> <br>';
+            
                 postsDiv.append(postCard);
             });
         }

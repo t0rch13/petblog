@@ -16,12 +16,14 @@ $(document).ready(function () {
             $.ajax({
                 url: 'http://localhost:8000/auth/sign-up/',
                 method: 'POST',
-                data: data,
+                data: JSON.stringify(data),
+                contentType: "application/json; charset=utf-8",
                 success: function (response) {
-                    alert(data);
+                    alert('Signup successful!');
+                    window.location.href = '/login';
                 },
                 error: function (error) {
-                    console.log(error);
+                    alert('Signup failed: ' + error.responseText);
                 }
             });
         } else {
