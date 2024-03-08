@@ -92,10 +92,6 @@ func (h *Handler) deletePost(c *gin.Context) {
 }
 
 func (h *Handler) getPostById(c *gin.Context) {
-	userId, err := getUserId(c)
-	if err != nil {
-		return
-	}
 
 	postId, err := strconv.Atoi(c.Param("id"))
 	if err != nil {
@@ -103,7 +99,7 @@ func (h *Handler) getPostById(c *gin.Context) {
 		return
 	}
 
-	post, err := h.services.Post.GetPostById(userId, postId)
+	post, err := h.services.Post.GetPostById(postId)
 	if err != nil {
 		newErrorResponse(c, http.StatusInternalServerError, err.Error())
 		return

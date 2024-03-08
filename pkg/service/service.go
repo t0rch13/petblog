@@ -22,7 +22,7 @@ type Pet interface {
 type Post interface {
 	CreatePost(userId int, petId int, post petblog.Post) (int, error)
 	GetAllPosts() ([]petblog.Post, error)
-	GetPostById(userId, postId int) (petblog.Post, error)
+	GetPostById(postId int) (petblog.Post, error)
 	DeletePost(userId, postId int) error
 	UpdatePost(userId, postId int, input petblog.UpdatePostInput) error
 	GetUserPosts(userId int) ([]petblog.Post, error)

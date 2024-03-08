@@ -49,10 +49,10 @@ func (r *PostPostgres) GetAllPosts() ([]petblog.Post, error) {
 	return posts, err
 }
 
-func (r *PostPostgres) GetPostById(userId, postId int) (petblog.Post, error) {
+func (r *PostPostgres) GetPostById(postId int) (petblog.Post, error) {
 	var post petblog.Post
-	query := fmt.Sprintf("SELECT id, user_id, username, pet_id, petname, title, content FROM %s WHERE id=$1 and user_id=$2", postsTable)
-	err := r.db.Get(&post, query, postId, userId)
+	query := fmt.Sprintf("SELECT id, user_id, username, pet_id, petname, title, content FROM %s WHERE id=$1", postsTable)
+	err := r.db.Get(&post, query, postId)
 	return post, err
 }
 

@@ -21,8 +21,8 @@ func (s *PostService) GetAllPosts() ([]petblog.Post, error) {
 	return s.repo.GetAllPosts()
 }
 
-func (s *PostService) GetPostById(userId, postId int) (petblog.Post, error) {
-	return s.repo.GetPostById(userId, postId)
+func (s *PostService) GetPostById(postId int) (petblog.Post, error) {
+	return s.repo.GetPostById(postId)
 }
 
 func (s *PostService) DeletePost(userId, postId int) error {

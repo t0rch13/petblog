@@ -53,7 +53,7 @@ func (h *Handler) InitRoutes() *gin.Engine {
 		c.HTML(http.StatusOK, "posts.html", nil)
 	})
 
-	router.GET("/post", func(c *gin.Context) {
+	router.GET("/post/:id", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "post.html", nil)
 	})
 
